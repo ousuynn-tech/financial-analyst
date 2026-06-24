@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography, Card } from 'antd';
 import CatRibbon from '@/components/CatRibbon';
 

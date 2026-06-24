@@ -7,19 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        surface: '#f4fbf8',
-        soft: '#ecf7f2',
+        surface: '#f4fbf4',
+        soft: '#e7f7eb',
         brand: {
-          light: '#d8f0e8',
-          DEFAULT: '#5fae96',
-          dark: '#235048',
+          light: '#c8eed3',
+          DEFAULT: '#21A038',
+          dark: '#126120',
         },
-        accent: '#4b7d8c',
-        note: '#def4eb',
+        accent: '#188A2E',
+        note: '#dcf3e2',
       },
       boxShadow: {
-        soft: '0 24px 80px rgba(59, 96, 86, 0.08)',
-        panel: '0 18px 34px rgba(44, 96, 83, 0.12)',
+        soft: '0 24px 80px rgba(33, 160, 56, 0.08)',
+        panel: '0 18px 34px rgba(33, 160, 56, 0.12)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

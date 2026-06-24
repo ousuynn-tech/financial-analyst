@@ -15,14 +15,6 @@ const facts = [
   'Задача аналитика — перевести сложные данные в понятные рекомендации для бизнеса.',
 ];
 
-const faceTransforms = [
-  { x: -20, y: 45 },
-  { x: -20, y: -45 },
-  { x: 70, y: 45 },
-  { x: 70, y: -45 },
-  { x: -110, y: 45 },
-  { x: 40, y: 45 },
-];
 
 export default function InteractivePage() {
   const [selected, setSelected] = useState(0);
@@ -43,13 +35,35 @@ export default function InteractivePage() {
     if (isRolling) return;
     setIsRolling(true);
     const next = Math.floor(Math.random() * 6);
-    const transform = faceTransforms[next];
-    setRotation(transform);
+
+    // Вычисляем базовые углы для каждой грани, чтобы она была повернута прямо к камере
+    let baseRx = 0;
+    let baseRy = 0;
+    switch (next) {
+      case 0: baseRx = 0; baseRy = 0; break;     // Грань 1 (Фронт)
+      case 1: baseRx = 0; baseRy = -90; break;   // Грань 2 (Право)
+      case 2: baseRx = 0; baseRy = -180; break;  // Грань 3 (Тыл)
+      case 3: baseRx = 0; baseRy = 90; break;    // Грань 4 (Лево)
+      case 4: baseRx = -90; baseRy = 0; break;   // Грань 5 (Верх)
+      case 5: baseRx = 90; baseRy = 0; break;    // Грань 6 (Низ)
+    }
+
+    const currentX = rotation.x;
+    const currentY = rotation.y;
+
+    // Добавляем 4-5 полных оборотов (1440 или 1800 градусов) для быстрого вращения
+    const spinsX = (Math.floor(Math.random() * 2) + 4) * 360;
+    const spinsY = (Math.floor(Math.random() * 2) + 4) * 360;
+
+    const targetX = currentX + spinsX + (baseRx - (currentX % 360));
+    const targetY = currentY + spinsY + (baseRy - (currentY % 360));
+
+    setRotation({ x: targetX, y: targetY });
 
     setTimeout(() => {
       setSelected(next);
       setIsRolling(false);
-    }, 2400);
+    }, 800); // 800ms
   };
 
   return (
@@ -70,9 +84,9 @@ export default function InteractivePage() {
       <div className="grid gap-8 lg:grid-cols-[1fr_420px]">
         <Card className="rounded-[28px] border-brand-light/30 bg-brand-light/60 p-8 shadow-panel">
           <div className="flex flex-col items-center gap-6">
-            <div className="flex h-[240px] w-[240px] items-center justify-center rounded-[32px] bg-white/80 shadow-panel">
+            <div className="flex h-[240px] w-[240px] items-center justify-center rounded-[32px] bg-white/80 shadow-panel" style={{ perspective: '1000px' }}>
               <div
-                className="relative h-40 w-40 rounded-3xl border border-brand-light/30 bg-gradient-to-br from-brand-light to-accent p-4 shadow-2xl transition-transform duration-[2400ms] ease-out"
+                className="relative h-40 w-40 rounded-3xl border border-brand-light/30 bg-gradient-to-br from-brand-light to-accent p-4 shadow-2xl transition-transform duration-[800ms] ease-out"
                 style={{ transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`, transformStyle: 'preserve-3d' }}
               >
                 {Array.from({ length: 6 }, (_, index) => (
@@ -110,17 +124,17 @@ export default function InteractivePage() {
 function getFaceStyle(index: number) {
   switch (index) {
     case 0:
-      return { transform: 'rotateY(0deg) translateZ(90px)' };
+      return { transform: 'rotateY(0deg) translateZ(80px)', backfaceVisibility: 'hidden' as const };
     case 1:
-      return { transform: 'rotateY(90deg) translateZ(90px)' };
+      return { transform: 'rotateY(90deg) translateZ(80px)', backfaceVisibility: 'hidden' as const };
     case 2:
-      return { transform: 'rotateY(180deg) translateZ(90px)' };
+      return { transform: 'rotateY(180deg) translateZ(80px)', backfaceVisibility: 'hidden' as const };
     case 3:
-      return { transform: 'rotateY(-90deg) translateZ(90px)' };
+      return { transform: 'rotateY(-90deg) translateZ(80px)', backfaceVisibility: 'hidden' as const };
     case 4:
-      return { transform: 'rotateX(90deg) translateZ(90px)' };
+      return { transform: 'rotateX(90deg) translateZ(80px)', backfaceVisibility: 'hidden' as const };
     case 5:
-      return { transform: 'rotateX(-90deg) translateZ(90px)' };
+      return { transform: 'rotateX(-90deg) translateZ(80px)', backfaceVisibility: 'hidden' as const };
     default:
       return {};
   }

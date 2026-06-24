@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography, Card, List } from 'antd';
 import CatRibbon from '@/components/CatRibbon';
 
@@ -31,7 +33,7 @@ export default function CareerPage() {
         <List
           dataSource={steps}
           renderItem={(item, index) => (
-            <List.Item className="rounded-3xl border border-brand-light/30 bg-white/80 p-5 shadow-sm">
+            <List.Item className="rounded-3xl border border-brand-light/30 bg-white/80 shadow-sm" style={{ padding: '20px' }}>
               <div className="flex items-start gap-4">
                 <span className="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-dark text-white text-lg font-semibold">
                   {index + 1}

@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Card, Typography } from 'antd';
 import SectionCard from '@/components/SectionCard';
 import CatRibbon from '@/components/CatRibbon';
@@ -12,7 +14,7 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <Title className="text-4xl text-slate-900 sm:text-5xl">Финансовый аналитик в ЭР-Телеком</Title>
             <Paragraph className="mt-4 max-w-xl text-lg leading-8 text-slate-700">
-              Это роль, которая переводит финансовые данные в понятные решения по бюджету, тарифам, инвестициям и развитию услуг холдинга.
+              Это специалист, который помогает компании тратить деньги с умом: он считает доходы и расходы, и подсказывает руководству, какие проекты принесут прибыль, а какие — убытки.
             </Paragraph>
           </div>
           <div className="rounded-[32px] bg-brand-light p-8 text-brand-dark shadow-panel">
@@ -36,18 +38,18 @@ export default function HomePage() {
       <div className="grid gap-6 lg:grid-cols-3">
         <SectionCard
           title="Кто это"
-          description="Финансовый аналитик изучает доходы, расходы, инвестиции и помогает сформировать план развития бизнеса с учетом телеком-специфики."
+          description="Это человек, который переводит сложный язык цифр на язык бизнеса. Он изучает графики и таблицы, чтобы понять, куда лучше вложить средства."
           tag="Профессия"
         />
         <SectionCard
           title="Рабочие задачи"
-          description="Поддержка ценообразования, контроль KPI, прогноз бюджета, анализ проектов и подготовка отчетов для руководства."
+          description="Поддержка цен на тарифы, контроль бюджета, анализ новых проектов и подготовка отчетов для руководства простым и понятным языком."
           tag="Задачи"
           accent="blue"
         />
         <SectionCard
           title="Почему это важно"
-          description="Значимые решения строятся на цифрах: аналитик обеспечивает устойчивость бизнеса и помогает оптимизировать инвестиции в сеть."
+          description="Благодаря аналитику компания не тратит деньги впустую. Он делает так, чтобы интернет и связь становились лучше, а бизнес стабильно рос."
           tag="Важность"
           accent="teal"
         />
