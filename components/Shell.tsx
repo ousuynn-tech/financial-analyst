@@ -41,11 +41,8 @@ export default function Shell({ children }: ShellProps) {
       }}
     >
       <Layout className="min-h-screen bg-surface text-slate-900 overflow-x-hidden relative">
-        <Image src="/cats/image0.png" alt="cat" width={160} height={160} className="fixed top-24 left-4 z-50 pointer-events-none drop-shadow-lg w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 hover:animate-paw" style={{ imageRendering: 'pixelated' }} />
-        <Image src="/cats/image1.png" alt="cat" width={160} height={160} className="fixed top-24 right-4 z-50 pointer-events-none drop-shadow-lg w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 hover:animate-paw" style={{ imageRendering: 'pixelated' }} />
         <Image src="/cats/image2.png" alt="cat" width={160} height={160} className="fixed bottom-4 left-4 z-50 pointer-events-none drop-shadow-lg w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 hover:animate-paw" style={{ imageRendering: 'pixelated' }} />
         <Image src="/cats/image4.png" alt="cat" width={160} height={160} className="fixed bottom-4 right-4 z-50 pointer-events-none drop-shadow-lg w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 hover:animate-paw" style={{ imageRendering: 'pixelated' }} />
-        
         <Header className="sticky top-0 z-40 border-b border-brand-light/30 bg-white/90 backdrop-blur-xl px-4 py-4 shadow-sm" style={{ height: 'auto', lineHeight: 'normal' }}>
           <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center justify-between gap-4 w-full md:w-auto">
