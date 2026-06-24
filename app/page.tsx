@@ -1,6 +1,7 @@
 'use client';
 
 import { Button, Card, Typography } from 'antd';
+import Link from 'next/link';
 import SectionCard from '@/components/SectionCard';
 import CatRibbon from '@/components/CatRibbon';
 
@@ -22,9 +23,11 @@ export default function HomePage() {
             <Title level={4} className="mt-4 mb-2 text-slate-900">
               Надежность, прогнозы, эффект.
             </Title>
-            <Button type="primary" size="large" className="rounded-2xl px-8 py-4">
-              Узнать больше
-            </Button>
+            <Link href="/tasks" passHref>
+              <Button type="primary" size="large" className="rounded-2xl px-8 py-4">
+                Узнать больше
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
